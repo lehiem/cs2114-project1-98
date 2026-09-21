@@ -39,8 +39,20 @@ public class Game {
 
         correctAnswer = methods.generateNumber();
 
-        System.out.println("Intro Message");
-        System.out.println("Rules");
+        System.out.println("=================================");
+        System.out.println("         CRACK THE CODE          ");
+        System.out.println("=================================");
+        System.out.println(
+            "Welcome! Try to guess the secret five-digit number.");
+        System.out.println();
+        System.out.println("RULES:");
+        System.out.println("1. Your guess must be exactly five digits.");
+        System.out.println("2. Your guess must be a positive whole number.");
+        System.out.println("3. Your guess cannot start with 0.");
+        System.out.println("4. Enter your guess as a five-digit number only.");
+        System.out.println("   Example: 12345");
+        System.out.println(
+            "5. Do not use brackets, spaces, decimals, or other symbols.");
 
         while (playing) {
 
@@ -52,11 +64,15 @@ public class Game {
             while (!correctType || !validEntry) {
 
                 if (!correctType) {
-                    System.out.println("");
+                    System.out.println(
+                        "Invalid input. Please enter a whole number.");
+                    System.out.println("Example: 12345");
                 }
 
                 if (!validEntry) {
-                    System.out.println("");
+                    System.out.println(
+                        "Invalid guess. Your guess must be a positive five-digit number, and cannot start with 0.");
+                    System.out.println("Example: 12345");
                 }
 
                 userInput = promptGuess();
@@ -70,20 +86,29 @@ public class Game {
 
             if (winner) {
                 playing = false;
-                System.out.println("win message");
+                System.out.println();
+                System.out.println("=================================");
+                System.out.println("          YOU WIN!               ");
+                System.out.println("=================================");
+                System.out.println(
+                    "Congratulations! You guessed the secret number!");
+                System.out.println("The answer was " + correctAnswer + ".");
+                System.out.println("Thanks for playing!");
                 break;
             }
 
             else {
                 correctPositions = methods.getCorrectPositions(guess,
                     correctAnswer);
-                System.out.println("correctPositions");
+                System.out.println(
+                    "The following numbers are in the correct position: ");
+                System.out.println(correctPositions);
 
                 optionSelected = showOptions();
                 boolean validOption = validator.isValidOption(optionSelected);
 
                 while (!validOption) {
-                    System.out.println("wrong option error message");
+                    System.out.println("wrong option error message ");
                     optionSelected = showOptions();
                     validOption = validator.isValidOption(optionSelected);
                 }
