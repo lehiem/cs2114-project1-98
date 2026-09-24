@@ -26,19 +26,31 @@ public class GameMethods
 
     public int generateNumber()
     {
-        return
+        return 10000 + random.nextInt(90000);
+
     }
 
 
     public boolean isCorrect(int guess, int answer)
     {
-        return
+        return guess == answer;
     }
 
 
     public ArrayList<Integer> getCorrectPositions(int guess, int answer)
     {
-        return
+        ArrayList<Integer> positions = new ArrayList<>();
+        String guessString = String.valueOf(guess);
+        String answerString = String.valueOf(answer);
+        int length = Math.min(guessString.length(), answerString.length());
+        for (int i = 0; i < length; i++)
+        {
+            if (guessString.charAt(i) == answerString.charAt(i))
+            {
+                positions.add(i + 1);
+            }
+        }
+        return positions;
     }
 
 
