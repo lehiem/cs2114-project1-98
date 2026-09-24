@@ -56,24 +56,32 @@ public class GameMethods
 
     public int getFirstDigit(int answer)
     {
-        return 
+        String answerString = String.valueOf(Math.abs(answer));
+        return answerString.charAt(0) - '0';
     }
 
 
     public int getLastDigit(int answer)
     {
-        return
+        return Math.abs(answer) % 10;
     }
 
 
     public int getDigitsSum(int answer)
     {
-        return
+        int remaining = Math.abs(answer);
+        int sum = 0;
+        while (remaining > 0)
+        {
+            sum += remaining % 10;
+            remaining /= 10;
+        }
+        return sum;
     }
 
 
     public String giveUp(int answer)
     {
-        return
+        return "You gave up. The secret number was " + answer + ".";
     }
 }
