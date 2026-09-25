@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * game class description
  *
- * @author verxnic
+ * @author VeronicaM
  * @version 09.18.2026
  */
 public class Game {
@@ -75,7 +75,8 @@ public class Game {
 
                 if (!validEntry) {
                     System.out.println(
-                        "Invalid guess. Your guess must be a positive five-digit number, and cannot start with 0.");
+                        "Invalid guess. Your guess must be a positive "
+                            + "five-digit number, and cannot start with 0.");
                     System.out.println("Example: 12345");
                 }
 
@@ -98,7 +99,6 @@ public class Game {
                     "Congratulations! You guessed the secret number!");
                 System.out.println("The answer was " + correctAnswer + ".");
                 System.out.println("Thanks for playing!");
-                break;
             }
 
             else {
