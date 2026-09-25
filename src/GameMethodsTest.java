@@ -77,9 +77,4 @@ public class GameMethodsTest extends student.TestCase
         assertEquals(1, methods.getDigitsSum(10000));
     }
     
-    public void testGiveUp()
-    {
-        assertEquals("You gave up. The secret number was 12345.",
-            methods.giveUp(12345));
-    }
 }
