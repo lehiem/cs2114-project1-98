@@ -1,12 +1,10 @@
 // -------------------------------------------------------------------------
 /**
- *  Write a one-sentence summary of your class here.
- *  Follow it with additional details about its purpose, what abstraction
- *  it represents, and how to use it.
+ *  Checks if the input provided by the user is valid before continuing with the game
  * 
- *  @author lehie
+ *  @author lehiem
  *  @version Sep 23, 2026
- */
+ */2
 public class InputValidator {
     // ----------------------------------------------------------
     /**
@@ -26,12 +24,34 @@ public class InputValidator {
     
     // ----------------------------------------------------------
     /**
-     * Place a description of your method here.
+     * checks if the user inputs a valid guess meaning a five digit number
      * @param input
-     * @return
+     * @return true or false
      */
-    public boolean isVaild(String input) {
-        
-    }
+    public boolean isValidGuess(String input) {
+        if (input == null || input.length() != 5) {
+            return false;
+        }
 
+        for (int i = 0; i < input.length(); i++) {
+            if (!Character.isDigit(input.charAt(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    // ----------------------------------------------------------
+    /**
+     * checks if the user inputs a valid option a,b,c,d, or e
+     * @param option
+     * @return true or false
+     */
+    public boolean isValidOption(String option) {
+        return option.equalsIgnoreCase("A") ||
+               option.equalsIgnoreCase("B") ||
+               option.equalsIgnoreCase("C") ||
+               option.equalsIgnoreCase("D") ||
+               option.equalsIgnoreCase("E");
+    }
 }
