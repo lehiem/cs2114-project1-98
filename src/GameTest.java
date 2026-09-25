@@ -42,12 +42,8 @@ public class GameTest
      */
     public void testShowOptions()
     {
-        game.scanner = new java.util.Scanner("a");
-        game.scanner = new java.util.Scanner("b");
-        game.scanner = new java.util.Scanner("c");
-        game.scanner = new java.util.Scanner("d");
-        game.scanner = new java.util.Scanner("e");
-
+        game.scanner =
+            new java.util.Scanner("a\n" + "b\n" + "c\n" + "d\n" + "e\n");
         assertEquals("a", game.showOptions());
         assertEquals("b", game.showOptions());
         assertEquals("c", game.showOptions());
