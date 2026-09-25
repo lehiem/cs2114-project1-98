@@ -54,7 +54,7 @@ Test classes include:
 
 ## System Diagram
 
-![System Diagram](system-diagram.png) <img width="764" height="760" alt="image" src="https://github.com/user-attachments/assets/fae5c415-eef7-4cca-88f9-081658547855" />
+![System Diagram] <img width="764" height="760" alt="image" src="https://github.com/user-attachments/assets/fae5c415-eef7-4cca-88f9-081658547855" />
 
 
 ## Stretch Goal
