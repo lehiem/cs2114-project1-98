@@ -58,4 +58,22 @@ public class GameMethodsTest extends student.TestCase
             4, 5));
         assertEquals(expected, methods.getCorrectPositions(12345, 12345));
     }
+    
+    public void testGetFirstDigit()
+    {
+        assertEquals(5, methods.getFirstDigit(54321));
+        assertEquals(1, methods.getFirstDigit(10000));
+    }
+    
+    public void testGetLastDigit()
+    {
+        assertEquals(1, methods.getLastDigit(54321));
+        assertEquals(0, methods.getLastDigit(12340));
+    }
+    
+    public void testGetDigitsSum()
+    {
+        assertEquals(15, methods.getDigitsSum(12345));
+        assertEquals(1, methods.getDigitsSum(10000));
+    }
 }
