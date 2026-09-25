@@ -1,4 +1,4 @@
-public class GameMethodsTest
+public class GameMethodsTest extends student.TestCase
 {
     private GameMethods methods;
     

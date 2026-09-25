@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 // -------------------------------------------------------------------------
 /**
  * game class description
  *
- * @author VeronicaM
+ * @author
  * @version 09.18.2026
  */
 public class Game {
@@ -18,21 +19,19 @@ public class Game {
 
     InputValidator validator;
     GameMethods methods;
+    
+    Scanner scanner = new Scanner(System.in);
+
+    // ~ Constructors ..........................................................
 
     // ~Public Methods ........................................................
 
-    public static void main(String[] args) {
-        Game game = new Game();
-        game.startGame();
-    }
-
-
     // ----------------------------------------------------------
     /**
-     * Starts and controls game flow.
+     * method description.
      * 
+     * @return
      */
-
     public void startGame() {
 
         methods = new GameMethods();
@@ -75,8 +74,7 @@ public class Game {
 
                 if (!validEntry) {
                     System.out.println(
-                        "Invalid guess. Your guess must be a positive "
-                            + "five-digit number, and cannot start with 0.");
+                        "Invalid guess. Your guess must be a positive five-digit number, and cannot start with 0.");
                     System.out.println("Example: 12345");
                 }
 
@@ -99,6 +97,7 @@ public class Game {
                     "Congratulations! You guessed the secret number!");
                 System.out.println("The answer was " + correctAnswer + ".");
                 System.out.println("Thanks for playing!");
+                break;
             }
 
             else {
@@ -150,7 +149,9 @@ public class Game {
      * @return
      */
     public String promptGuess() {
-
+        System.out.println();
+        System.out.print("Enter your guess: ");
+        return scanner.nextLine();
     }
 
 
@@ -161,7 +162,14 @@ public class Game {
      * @return
      */
     public String showOptions() {
-
+        System.out.println();
+        System.out.println("What would you like to do?");
+        System.out.println("a) Get the first digit");
+        System.out.println("b) Get the last digit");
+        System.out.println("c) Get the sum of the digits");
+        System.out.println("d) Give up and reveal the answer");
+        System.out.print("Enter your choice: ");
+        return scanner.nextLine();
     }
 
 }
