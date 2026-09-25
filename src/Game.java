@@ -3,13 +3,15 @@ import java.util.Scanner;
 
 // -------------------------------------------------------------------------
 /**
- * game class description
+ * Controls and gives structure to "Crack The Code" guessing game.
  *
- * @author
+ * @author VeronicaM
  * @version 09.18.2026
  */
 public class Game {
+
     // ~ Fields ................................................................
+
     int correctAnswer;
     int guess;
     String optionSelected;
@@ -19,7 +21,7 @@ public class Game {
 
     InputValidator validator;
     GameMethods methods;
-    
+
     Scanner scanner = new Scanner(System.in);
 
     // ~ Constructors ..........................................................
@@ -28,9 +30,19 @@ public class Game {
 
     // ----------------------------------------------------------
     /**
-     * method description.
+     * Creates game object to start game
      * 
-     * @return
+     */
+    public static void main(String[] args) {
+        Game game = new Game();
+        game.startGame();
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Starts game and controls the flow.
+     * 
      */
     public void startGame() {
 
@@ -47,7 +59,9 @@ public class Game {
         System.out.println("=================================");
         System.out.println(
             "Welcome! Try to guess the secret five-digit number.");
-        System.out.println();
+        System.out.println("Press enter to continue.");
+        scanner.nextLine();
+
         System.out.println("RULES:");
         System.out.println("1. Your guess must be exactly five digits.");
         System.out.println("2. Your guess must be a positive whole number.");
@@ -56,10 +70,13 @@ public class Game {
         System.out.println("   Example: 12345");
         System.out.println(
             "5. Do not use brackets, spaces, decimals, or other symbols.");
+        System.out.println("Press enter to continue.");
+        scanner.nextLine();
 
         while (playing) {
 
             String userInput = promptGuess();
+            System.out.println();
 
             correctType = validator.isInteger(userInput);
             validEntry = validator.isValidGuess(userInput);
@@ -74,7 +91,8 @@ public class Game {
 
                 if (!validEntry) {
                     System.out.println(
-                        "Invalid guess. Your guess must be a positive five-digit number, and cannot start with 0.");
+                        "Invalid guess. Your guess must be a positive five-digit "
+                            + "number, and it cannot start with 0.");
                     System.out.println("Example: 12345");
                 }
 
@@ -97,7 +115,6 @@ public class Game {
                     "Congratulations! You guessed the secret number!");
                 System.out.println("The answer was " + correctAnswer + ".");
                 System.out.println("Thanks for playing!");
-                break;
             }
 
             else {
@@ -107,33 +124,48 @@ public class Game {
                     "The following numbers are in the correct position: ");
                 System.out.println(correctPositions);
 
+                System.out.println("Press enter to continue.");
+                scanner.nextLine();
+
                 optionSelected = showOptions();
                 boolean validOption = validator.isValidOption(optionSelected);
 
                 while (!validOption) {
-                    System.out.println("wrong option error message ");
+                    System.out.println("Invalid option. Choose one from the "
+                        + "following:");
                     optionSelected = showOptions();
                     validOption = validator.isValidOption(optionSelected);
                 }
 
                 if (optionSelected.equals("a")) {
                     int firstDigit = methods.getFirstDigit(correctAnswer);
-                    System.out.println("first digit: ");
+                    System.out.println("The first digit of the number is: "
+                        + firstDigit);
                 }
 
                 else if (optionSelected.equals("b")) {
                     int lastDigit = methods.getLastDigit(correctAnswer);
-                    System.out.println("last digit: ");
+                    System.out.println("The last digit of the number is: "
+                        + lastDigit);
                 }
 
                 else if (optionSelected.equals("c")) {
                     int sumOfDigits = methods.getDigitsSum(correctAnswer);
-                    System.out.println("sum of digits: ");
+                    System.out.println(
+                        "The sum of the digits of the number is: "
+                            + sumOfDigits);
                 }
 
-                else {
+                else if (optionSelected.equals("d")) {
                     playing = false;
-                    System.out.println("give up message");
+                    System.out.println();
+                    System.out.println("=================================");
+                    System.out.println("          GAME OVER!             ");
+                    System.out.println("=================================");
+                    System.out.println("You gave up!");
+                    System.out.println("The secret number was "
+                        + correctAnswer);
+                    System.out.println("Better luck next time!");
                     break;
                 }
 
@@ -144,9 +176,9 @@ public class Game {
 
     // ----------------------------------------------------------
     /**
-     * method descp.
+     * Prompts the user to enter a guess and returns the input.
      * 
-     * @return
+     * @return user's guess as String
      */
     public String promptGuess() {
         System.out.println();
@@ -157,9 +189,9 @@ public class Game {
 
     // ----------------------------------------------------------
     /**
-     * method descp.
+     * Displays the available game options and returns the user's choice.
      * 
-     * @return
+     * @return user's selected option as String
      */
     public String showOptions() {
         System.out.println();
@@ -168,6 +200,8 @@ public class Game {
         System.out.println("b) Get the last digit");
         System.out.println("c) Get the sum of the digits");
         System.out.println("d) Give up and reveal the answer");
+
+        System.out.println();
         System.out.print("Enter your choice: ");
         return scanner.nextLine();
     }
