@@ -8,8 +8,7 @@ import java.util.Random;
  * @author justisp
  * @version 09.23.2026
  */
-public class GameMethods
-{
+public class GameMethods {
     // ~ Fields ................................................................
 
     private Random random;
@@ -20,8 +19,7 @@ public class GameMethods
     /**
      * Creates a GameMethods object with a random number generator.
      */
-    public GameMethods()
-    {
+    public GameMethods() {
         random = new Random();
     }
 
@@ -34,8 +32,7 @@ public class GameMethods
      *
      * @return the random five-digit number
      */
-    public int generateNumber()
-    {
+    public int generateNumber() {
         return 10000 + random.nextInt(90000);
 
     }
@@ -51,8 +48,7 @@ public class GameMethods
      *            the correct answer
      * @return true if the guess equals the answer, false if it does not
      */
-    public boolean isCorrect(int guess, int answer)
-    {
+    public boolean isCorrect(int guess, int answer) {
         return guess == answer;
     }
 
@@ -68,17 +64,15 @@ public class GameMethods
      *            the correct answer
      * @return a list of the positions (1 to 5) where the digits match
      */
-    public ArrayList<Integer> getCorrectPositions(int guess, int answer)
-    {
+    public ArrayList<Integer> getCorrectPositions(int guess, int answer) {
         ArrayList<Integer> positions = new ArrayList<>();
         String guessString = String.valueOf(guess);
         String answerString = String.valueOf(answer);
         int length = Math.min(guessString.length(), answerString.length());
-        for (int i = 0; i < length; i++)
-        {
-            if (guessString.charAt(i) == answerString.charAt(i))
-            {
-                positions.add(i + 1);
+        for (int i = 0; i < length; i++) {
+            if (guessString.charAt(i) == answerString.charAt(i)) {
+                positions.add(Integer.parseInt(String.valueOf(guessString
+                    .charAt(i))));
             }
         }
         return positions;
@@ -93,8 +87,7 @@ public class GameMethods
      *            the correct answer
      * @return the first digit of the answer
      */
-    public int getFirstDigit(int answer)
-    {
+    public int getFirstDigit(int answer) {
         String answerString = String.valueOf(Math.abs(answer));
         return answerString.charAt(0) - '0';
     }
@@ -108,8 +101,7 @@ public class GameMethods
      *            the correct answer
      * @return the last digit of the answer
      */
-    public int getLastDigit(int answer)
-    {
+    public int getLastDigit(int answer) {
         return Math.abs(answer) % 10;
     }
 
@@ -122,12 +114,10 @@ public class GameMethods
      *            the correct answer
      * @return the sum of the digits of the answer
      */
-    public int getDigitsSum(int answer)
-    {
+    public int getDigitsSum(int answer) {
         int remaining = Math.abs(answer);
         int sum = 0;
-        while (remaining > 0)
-        {
+        while (remaining > 0) {
             sum += remaining % 10;
             remaining /= 10;
         }
@@ -143,8 +133,7 @@ public class GameMethods
      *            the correct answer
      * @return a message showing the correct answer
      */
-    public String giveUp(int answer)
-    {
+    public String giveUp(int answer) {
         return "You gave up. The secret number was " + answer + ".";
     }
 }

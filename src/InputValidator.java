@@ -44,6 +44,10 @@ public class InputValidator {
             return false;
 
         }
+        
+        if (input.charAt(0) == '0') {
+            return false;
+        }
 
         for (int i = 0; i < input.length(); i++) {
 
