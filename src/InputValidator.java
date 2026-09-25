@@ -9,7 +9,7 @@ public class InputValidator {
     // ----------------------------------------------------------
 
     /**
-     * isInteger checks if the input is an integer
+     * checks if the input is an integer
      * @param input String that represents user input
      * @return true if can be converted and false if cannot be
      */
