@@ -41,11 +41,14 @@ public class GameTest extends TestCase {
         game.scanner = new java.util.Scanner("b");
         game.scanner = new java.util.Scanner("c");
         game.scanner = new java.util.Scanner("d");
+        game.scanner = new java.util.Scanner("e");
 
         assertEquals("a", game.showOptions());
         assertEquals("b", game.showOptions());
         assertEquals("c", game.showOptions());
         assertEquals("d", game.showOptions());
+        assertEquals("e", game.showOptions());
+
 
     }
 }

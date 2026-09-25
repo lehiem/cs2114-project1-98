@@ -66,7 +66,7 @@ public class InputValidator {
     // ----------------------------------------------------------
 
     /**
-     * checks if the user inputs a valid option a,b,c,d, or e
+     * checks if the user inputs a valid option a,b,c,or d
      * @param option
      * @return true or false
      */
@@ -81,7 +81,7 @@ public class InputValidator {
         return option.equalsIgnoreCase("A") ||
                option.equalsIgnoreCase("B") ||
                option.equalsIgnoreCase("C") ||
-               option.equalsIgnoreCase("D") ||
+               option.equalsIgnoreCase("D") || 
                option.equalsIgnoreCase("E");
 
     }

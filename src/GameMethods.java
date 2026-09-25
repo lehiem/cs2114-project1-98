@@ -131,16 +131,14 @@ public class GameMethods {
      *
      * @param answer
      *            the correct answer
-     * @return a message showing the correct answer
      */
-    public String giveUp(int answer) {
+    public void giveUp(int answer) {
         System.out.println();
         System.out.println("=================================");
         System.out.println("          GAME OVER!             ");
         System.out.println("=================================");
         System.out.println("You gave up!");
-        System.out.println("The secret number was "
-            + answer);
-        return "Better luck next time!";
+        System.out.println("The secret number was: " + answer);
+        System.out.println("Better luck next time!");
     }
 }

@@ -158,14 +158,7 @@ public class Game {
 
                 else if (optionSelected.equals("d")) {
                     playing = false;
-                    System.out.println();
-                    System.out.println("=================================");
-                    System.out.println("          GAME OVER!             ");
-                    System.out.println("=================================");
-                    System.out.println("You gave up!");
-                    System.out.println("The secret number was "
-                        + correctAnswer);
-                    System.out.println("Better luck next time!");
+                    methods.giveUp(correctAnswer);
                     break;
                 }
 
@@ -200,6 +193,7 @@ public class Game {
         System.out.println("b) Get the last digit");
         System.out.println("c) Get the sum of the digits");
         System.out.println("d) Give up and reveal the answer");
+        System.out.println("e) Guess without receiving a hint");
 
         System.out.println();
         System.out.print("Enter your choice: ");
