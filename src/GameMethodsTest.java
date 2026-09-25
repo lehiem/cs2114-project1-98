@@ -26,4 +26,14 @@ public class GameMethodsTest extends student.TestCase
             assertEquals(5, String.valueOf(number).length());
         }
     }
+    
+    public void testIsCorrectMatch()
+    {
+        assertTrue(methods.isCorrect(12345, 12345));
+    }
+    
+    public void testIsCorrectNotMatch()
+    {
+        assertFalse(methods.isCorrect(12345, 54321));
+    }
 }
