@@ -8,7 +8,8 @@ import java.util.Scanner;
  * @author VeronicaM
  * @version 09.18.2026
  */
-public class Game {
+public class Game
+{
 
     // ~ Fields ................................................................
 
@@ -31,9 +32,9 @@ public class Game {
     // ----------------------------------------------------------
     /**
      * Creates game object to start game
-     * 
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Game game = new Game();
         game.startGame();
     }
@@ -42,9 +43,9 @@ public class Game {
     // ----------------------------------------------------------
     /**
      * Starts game and controls the flow.
-     * 
      */
-    public void startGame() {
+    public void startGame()
+    {
 
         methods = new GameMethods();
         validator = new InputValidator();
@@ -57,8 +58,8 @@ public class Game {
         System.out.println("=================================");
         System.out.println("         CRACK THE CODE          ");
         System.out.println("=================================");
-        System.out.println(
-            "Welcome! Try to guess the secret five-digit number.");
+        System.out
+            .println("Welcome! Try to guess the secret five-digit number.");
         System.out.println("Press enter to continue.");
         scanner.nextLine();
 
@@ -73,7 +74,8 @@ public class Game {
         System.out.println("Press enter to continue.");
         scanner.nextLine();
 
-        while (playing) {
+        while (playing)
+        {
 
             String userInput = promptGuess();
             System.out.println();
@@ -81,15 +83,18 @@ public class Game {
             correctType = validator.isInteger(userInput);
             validEntry = validator.isValidGuess(userInput);
 
-            while (!correctType || !validEntry) {
+            while (!correctType || !validEntry)
+            {
 
-                if (!correctType) {
-                    System.out.println(
-                        "Invalid input. Please enter a whole number.");
+                if (!correctType)
+                {
+                    System.out
+                        .println("Invalid input. Please enter a whole number.");
                     System.out.println("Example: 12345");
                 }
 
-                if (!validEntry) {
+                if (!validEntry)
+                {
                     System.out.println(
                         "Invalid guess. Your guess must be a positive five-digit "
                             + "number, and it cannot start with 0.");
@@ -105,23 +110,24 @@ public class Game {
 
             boolean winner = methods.isCorrect(guess, correctAnswer);
 
-            if (winner) {
+            if (winner)
+            {
                 playing = false;
                 System.out.println();
                 System.out.println("=================================");
                 System.out.println("          YOU WIN!               ");
                 System.out.println("=================================");
-                System.out.println(
-                    "Congratulations! You guessed the secret number!");
+                System.out
+                    .println("Congratulations! You guessed the secret number!");
                 System.out.println("The answer was " + correctAnswer + ".");
                 System.out.println("Thanks for playing!");
             }
 
-            else {
-                correctPositions = methods.getCorrectPositions(guess,
-                    correctAnswer);
-                System.out.println(
-                    "The following numbers are in the correct position: ");
+            else
+            {
+                correctPositions =
+                    methods.getCorrectPositions(guess, correctAnswer);
+                System.out.println("The following positions are correct: ");
                 System.out.println(correctPositions);
 
                 System.out.println("Press enter to continue.");
@@ -130,33 +136,38 @@ public class Game {
                 optionSelected = showOptions();
                 boolean validOption = validator.isValidOption(optionSelected);
 
-                while (!validOption) {
-                    System.out.println("Invalid option. Choose one from the "
-                        + "following:");
+                while (!validOption)
+                {
+                    System.out.println(
+                        "Invalid option. Choose one from the " + "following:");
                     optionSelected = showOptions();
                     validOption = validator.isValidOption(optionSelected);
                 }
 
-                if (optionSelected.equals("a")) {
+                if (optionSelected.equalsIgnoreCase("A"))
+                {
                     int firstDigit = methods.getFirstDigit(correctAnswer);
-                    System.out.println("The first digit of the number is: "
-                        + firstDigit);
+                    System.out.println(
+                        "The first digit of the number is: " + firstDigit);
                 }
 
-                else if (optionSelected.equals("b")) {
+                else if (optionSelected.equalsIgnoreCase("B"))
+                {
                     int lastDigit = methods.getLastDigit(correctAnswer);
-                    System.out.println("The last digit of the number is: "
-                        + lastDigit);
+                    System.out.println(
+                        "The last digit of the number is: " + lastDigit);
                 }
 
-                else if (optionSelected.equals("c")) {
+                else if (optionSelected.equalsIgnoreCase("C"))
+                {
                     int sumOfDigits = methods.getDigitsSum(correctAnswer);
                     System.out.println(
                         "The sum of the digits of the number is: "
                             + sumOfDigits);
                 }
 
-                else if (optionSelected.equals("d")) {
+                else if (optionSelected.equalsIgnoreCase("D"))
+                {
                     playing = false;
                     methods.giveUp(correctAnswer);
                     break;
@@ -173,7 +184,8 @@ public class Game {
      * 
      * @return user's guess as String
      */
-    public String promptGuess() {
+    public String promptGuess()
+    {
         System.out.println();
         System.out.print("Enter your guess: ");
         return scanner.nextLine();
@@ -186,7 +198,8 @@ public class Game {
      * 
      * @return user's selected option as String
      */
-    public String showOptions() {
+    public String showOptions()
+    {
         System.out.println();
         System.out.println("What would you like to do?");
         System.out.println("a) Get the first digit");

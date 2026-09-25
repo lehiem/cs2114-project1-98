@@ -1,4 +1,5 @@
-public class InputValidatorTest extends student.TestCase
+public class InputValidatorTest
+    extends student.TestCase
 {
-    
+
 }

@@ -78,8 +78,7 @@ public class GameMethods
         {
             if (guessString.charAt(i) == answerString.charAt(i))
             {
-                positions.add(
-                    Integer.parseInt(String.valueOf(guessString.charAt(i))));
+                positions.add(i + 1);
             }
         }
         return positions;

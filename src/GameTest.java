@@ -7,7 +7,9 @@ import student.TestCase;
  * @author Veronica Munoz Ospina
  * @version 2026.09.25
  */
-public class GameTest extends TestCase {
+public class GameTest
+    extends TestCase
+{
 
     // ~ Fields ................................................................
     private Game game;
@@ -19,7 +21,8 @@ public class GameTest extends TestCase {
     /**
      * Sets up the test object.
      */
-    public void setUp() {
+    public void setUp()
+    {
         game = new Game();
     }
 
@@ -27,7 +30,8 @@ public class GameTest extends TestCase {
     /**
      * Tests the promptGuess method.
      */
-    public void testPromptGuess() {
+    public void testPromptGuess()
+    {
         game.scanner = new java.util.Scanner("12345");
         assertEquals("12345", game.promptGuess());
     }
@@ -36,7 +40,8 @@ public class GameTest extends TestCase {
     /**
      * Tests the showOptions method.
      */
-    public void testShowOptions() {
+    public void testShowOptions()
+    {
         game.scanner = new java.util.Scanner("a");
         game.scanner = new java.util.Scanner("b");
         game.scanner = new java.util.Scanner("c");
@@ -48,7 +53,6 @@ public class GameTest extends TestCase {
         assertEquals("c", game.showOptions());
         assertEquals("d", game.showOptions());
         assertEquals("e", game.showOptions());
-
 
     }
 }

@@ -82,9 +82,8 @@ public class GameMethodsTest
      */
     public void testGetCorrectPositionsSomeMatch()
     {
-        ArrayList<Integer> expected =
-            new ArrayList<>(Arrays.asList(1, 2, 4, 5));
-        assertEquals(expected, methods.getCorrectPositions(12345, 12945));
+        ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(1, 3, 5));
+        assertEquals(expected, methods.getCorrectPositions(64854, 67894));
     }
 
 
@@ -95,7 +94,7 @@ public class GameMethodsTest
      */
     public void testGetCorrectPositionsNoMatch()
     {
-        assertTrue(methods.getCorrectPositions(11111, 22222).isEmpty());
+        assertTrue(methods.getCorrectPositions(88888, 99999).isEmpty());
     }
 
 
@@ -108,7 +107,7 @@ public class GameMethodsTest
     {
         ArrayList<Integer> expected =
             new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
-        assertEquals(expected, methods.getCorrectPositions(12345, 12345));
+        assertEquals(expected, methods.getCorrectPositions(56789, 56789));
     }
 
 
