@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * game class description
  *
- * @author
+ * @author VeronicaM
  * @version 09.18.2026
  */
 public class Game {
@@ -19,16 +19,20 @@ public class Game {
     InputValidator validator;
     GameMethods methods;
 
-    // ~ Constructors ..........................................................
-
     // ~Public Methods ........................................................
+
+    public static void main(String[] args) {
+        Game game = new Game();
+        game.startGame();
+    }
+
 
     // ----------------------------------------------------------
     /**
-     * method description.
+     * Starts and controls game flow.
      * 
-     * @return
      */
+
     public void startGame() {
 
         methods = new GameMethods();
@@ -71,7 +75,8 @@ public class Game {
 
                 if (!validEntry) {
                     System.out.println(
-                        "Invalid guess. Your guess must be a positive five-digit number, and cannot start with 0.");
+                        "Invalid guess. Your guess must be a positive "
+                            + "five-digit number, and cannot start with 0.");
                     System.out.println("Example: 12345");
                 }
 
@@ -94,7 +99,6 @@ public class Game {
                     "Congratulations! You guessed the secret number!");
                 System.out.println("The answer was " + correctAnswer + ".");
                 System.out.println("Thanks for playing!");
-                break;
             }
 
             else {
