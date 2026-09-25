@@ -7,7 +7,7 @@ import java.util.Arrays;
  * generateNumber, isCorrect, getCorrectPositions, getFirstDigit, getLastDigit,
  * getDigitsSum, and getDigitsSum methods.
  * 
- * @author justisp
+ * @author JustisP
  * @version 9.23.2026
  */
 public class GameMethodsTest
@@ -75,6 +75,11 @@ public class GameMethodsTest
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Test method for getCorrectPositions. Should return the correct positions
+     * in an ArrayList when some digits in the guess match the answer.
+     */
     public void testGetCorrectPositionsSomeMatch()
     {
         ArrayList<Integer> expected =
@@ -83,12 +88,22 @@ public class GameMethodsTest
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Test method for getCorrectPositions. Should return an empty ArrayList
+     * when no digits in the guess match the answer.
+     */
     public void testGetCorrectPositionsNoMatch()
     {
         assertTrue(methods.getCorrectPositions(11111, 22222).isEmpty());
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Test method for getCorrectPositions. Should return the correct positions
+     * in an ArrayList when all digits in the guess match the answer.
+     */
     public void testGetCorrectPositionsAllMatch()
     {
         ArrayList<Integer> expected =
@@ -97,6 +112,11 @@ public class GameMethodsTest
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Test method for getFirstDigit. Should return the first digit of the
+     * answer.
+     */
     public void testGetFirstDigit()
     {
         assertEquals(5, methods.getFirstDigit(54321));
@@ -104,6 +124,10 @@ public class GameMethodsTest
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Test method for getLastDigit. Should return the last digit of the answer.
+     */
     public void testGetLastDigit()
     {
         assertEquals(1, methods.getLastDigit(54321));
@@ -111,6 +135,11 @@ public class GameMethodsTest
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Test method for getDigitsSum. Should return the sum of all the digits in
+     * the answer.
+     */
     public void testGetDigitsSum()
     {
         assertEquals(15, methods.getDigitsSum(12345));
