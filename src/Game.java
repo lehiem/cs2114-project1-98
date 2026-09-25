@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * game class description
  *
- * @author
+ * @author verxnic
  * @version 09.18.2026
  */
 public class Game {
@@ -19,16 +19,20 @@ public class Game {
     InputValidator validator;
     GameMethods methods;
 
-    // ~ Constructors ..........................................................
-
     // ~Public Methods ........................................................
+
+    public static void main(String[] args) {
+        Game game = new Game();
+        game.startGame();
+    }
+
 
     // ----------------------------------------------------------
     /**
-     * method description.
+     * Starts and controls game flow.
      * 
-     * @return
      */
+
     public void startGame() {
 
         methods = new GameMethods();

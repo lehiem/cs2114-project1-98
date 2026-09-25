@@ -14,7 +14,7 @@ public class InputValidator {
      * @param input String that represent user input
      * @return true if can be convert and false if cannot be
      */
-    public boolean isIntger(String input ) {
+    public boolean isInteger(String input ) {
         try {
             Integer.parseInt(input);
             return true;
@@ -30,8 +30,19 @@ public class InputValidator {
      * @param input
      * @return
      */
-    public boolean isVaild(String input) {
-        
+    public boolean isValidGuess(String input) {
+        return true;
     }
+    
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * @param input
+     * @return
+     */
+    public boolean isValidOption(String option) {
+        return true;
+    }
+
 
 }
