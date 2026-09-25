@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class GameMethodsTest extends student.TestCase
 {
     private GameMethods methods;
@@ -35,5 +38,24 @@ public class GameMethodsTest extends student.TestCase
     public void testIsCorrectNotMatch()
     {
         assertFalse(methods.isCorrect(12345, 54321));
+    }
+    
+    public void testGetCorrectPositionsSomeMatch()
+    {
+        ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(1, 2, 4,
+            5));
+        assertEquals(expected, methods.getCorrectPositions(12345, 12945));
+    }
+    
+    public void testGetCorrectPositionsNoMatch()
+    {
+        assertTrue(methods.getCorrectPositions(11111, 22222).isEmpty());
+    }
+    
+    public void testGetCorrectPositionsAllMatch()
+    {
+        ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(1, 2, 3,
+            4, 5));
+        assertEquals(expected, methods.getCorrectPositions(12345, 12345));
     }
 }
